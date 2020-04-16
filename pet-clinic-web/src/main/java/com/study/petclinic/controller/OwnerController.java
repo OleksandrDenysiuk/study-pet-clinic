@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class OwnerController {
 
     @GetMapping("/owners")
-    public String listVets(Model model){
-        return "vets/index";
+    public String listOwners(Model model){
+        return "owners/index";
     }
 }
