@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>List of Owners</title>
 </head>
 <body>
-<h2>Owners of pets</h2>
+<h2>List of owners</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>First name</th>
+        <th>Second name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="owner : ${owners}">
+        <td th:text="${owner.id}"></td>
+        <td th:text="${owner.firstName}"></td>
+        <td th:text="${owner.lastName}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
