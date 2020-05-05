@@ -19,7 +19,6 @@ import java.util.Set;
 
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
@@ -48,16 +47,6 @@ class OwnerControllerTest {
         owners.add(Owner.builder().id(2L).build());
 
         mockMvc = MockMvcBuilders.standaloneSetup(ownerController).build();
-    }
-
-    @Test
-    void listOwners() throws Exception {
-        when(ownerService.findAll()).thenReturn(owners);
-
-        mockMvc.perform(get("/owner"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("owners/list"))
-                .andExpect(model().attribute("owners",hasSize(2)));
     }
 
     @Test
